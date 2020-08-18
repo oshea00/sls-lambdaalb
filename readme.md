@@ -23,6 +23,11 @@ To compile and deploy:
 * `./build.sh`
 * `sls deploy -v`
 
+To remove:
+* `sls remove`
+Note: make sure to cleanup if you are experimenting - the ALB/ELB charges hourly while on 
+your account.
+
 Note the `LoadBalancerDNSName: lambd-LoadB-xxxxx.elb.amazonaws.com` displayed as stack output.
 (you can always find it on the stack outputs tab in the AWS console)
 
