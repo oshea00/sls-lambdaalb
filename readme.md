@@ -9,7 +9,7 @@ registration of the lambda.
 The example Handler.cs simply dumps the request passed in by the ALB to the
 log and returns a "Hello 123" string.
 
-This project was started using `sls create -t aws-csharp -p lambdaals`. Added enough code to 
+This project was started using `sls create -t aws-csharp -p lambdaalb`. Added enough code to 
 the handler to dump the request and return some data. The heavy lifting is in the serverless.
 yaml which sets up the ALB and references the function produced in the 'functions:' section.
 
