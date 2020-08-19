@@ -49,9 +49,9 @@ resources:
         SecurityGroupIngress: 
           -
             CidrIp: 0.0.0.0/0
-            FromPort: 80
+            FromPort: 443
             IpProtocol: tcp
-            ToPort: 80
+            ToPort: 443
         VpcId: ${self:custom.vpcConfig.vpcId}
 
     LoadBalancer:
@@ -71,7 +71,9 @@ resources:
 
     Listener:
       Type: AWS::ElasticLoadBalancingV2::Listener
-      Properties: 
+      Properties:
+        Certificates:
+          - CertificateArn: 'arn:aws:acm:us-west-2:455313538421:certificate/7804bac0-64d0-4a58-b9ce-f177e8fab93d'
         DefaultActions: 
           - 
             TargetGroupArn:
@@ -79,8 +81,8 @@ resources:
             Type: forward
         LoadBalancerArn:
           Ref: LoadBalancer
-        Port: 80
-        Protocol: HTTP
+        Port: 443
+        Protocol: HTTPS
 
   Outputs:
     LoadBalancerDNSName:
