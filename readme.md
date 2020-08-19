@@ -46,3 +46,11 @@ ALB setup for OIDC and TLS requires setting up an authorizer lambda and certific
 on the ALB - working example forthcoming.
 
 
+-------------------------------------------------------------------
+You may only use the Microsoft .NET Core Debugger (vsdbg) with
+Visual Studio Code, Visual Studio or Visual Studio for Mac software
+to help you develop and test your applications.
+-------------------------------------------------------------------
+Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
+Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
+IDX20803: Unable to obtain configuration from: 'System.String'.

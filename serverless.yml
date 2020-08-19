@@ -23,6 +23,10 @@ functions:
     handler: CsharpHandlers::Namespace.API::FunctionHandler
     package:
       artifact: bin/Release/netcoreapp3.1/lambdaalb.zip
+    environment:
+      - AUTH_DOMAIN: "dev-569-d-y7.auth0.com"
+      - AUTH_AUDIENCE: "65qyq9ml84"
+      - AUTH_PERMISSIONS: "write:votes,read:stuff"
     events:
       - alb:
           listenerArn: 
