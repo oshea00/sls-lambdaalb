@@ -31,7 +31,10 @@ your account.
 Note the `LoadBalancerDNSName: lambd-LoadB-xxxxx.elb.amazonaws.com` displayed as stack output.
 (you can always find it on the stack outputs tab in the AWS console)
 
-Your url will be `http://{LoadBalancerDNSName}/api`
+Your url will be `https://{LoadBalancerDNSName}/api`
+
+Note: You will need the ARN of your certificate in AWS - must be in
+same region as the ALB.
 
 ## Local testing
 You can use the request.json as input to your lambda:
