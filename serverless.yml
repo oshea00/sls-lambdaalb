@@ -73,7 +73,7 @@ resources:
       Type: AWS::ElasticLoadBalancingV2::Listener
       Properties:
         Certificates:
-          - CertificateArn: '	arn:aws:acm:us-west-2:455313538421:certificate/7804bac0-64d0-4a58-b9ce-f177e8fab93d'
+          - CertificateArn: 'arn:aws:acm:us-west-2:455313538421:certificate/7804bac0-64d0-4a58-b9ce-f177e8fab93d'
         DefaultActions: 
           - 
             TargetGroupArn:
