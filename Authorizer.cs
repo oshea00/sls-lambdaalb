@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
-using JWT.Builder;
-using System.Net.Http;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
@@ -16,9 +13,8 @@ namespace JWTAuthorizer {
 public static class Authorizer {
 
     public static bool IsAuthorized(string authHeaderValue, string domain, string audience, List<string> scopes) {
-        var toks = authHeaderValue.Split();
-
         try {
+            var toks = authHeaderValue.Split();
             var domainUrl = $"https://{domain}/";
             ConfigurationManager<OpenIdConnectConfiguration> configManager = 
                 new ConfigurationManager<OpenIdConnectConfiguration>(

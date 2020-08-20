@@ -17,7 +17,9 @@ namespace Namespace
         var request = new StreamReader(input).ReadToEnd();
         var dict = JsonSerializer.Deserialize<Dictionary<string,object>>(request);
         var requestHeaders = JsonSerializer.Deserialize<Dictionary<string,string>>(dict["headers"].ToString());
-        var authorization = requestHeaders["authorization"];
+        var authorization = "";
+        if (requestHeaders.ContainsKey("authorization"))
+          authorization = requestHeaders["authorization"];
 
         System.Console.WriteLine(request);
 
