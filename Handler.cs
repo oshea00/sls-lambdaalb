@@ -17,6 +17,22 @@ namespace Namespace
         var dict = JsonSerializer.Deserialize<Dictionary<string,object>>(request);
         var requestHeaders = JsonSerializer.Deserialize<Dictionary<string,string>>(dict["headers"].ToString());
         var authorization = "";
+
+        if (dict["httpMethod"].ToString()=="OPTIONS") {
+          Dictionary<string, string> corsHeaders = new Dictionary<string, string>();
+          corsHeaders.Add("Content-Type", "application/json");
+          corsHeaders.Add("Access-Control-Allow-Origin", "*");
+          corsHeaders.Add("Access-Control-Allow-Headers", "*");
+          corsHeaders.Add("Access-Control-Allow-Methods", "*");
+          var corsResponse = new ApplicationLoadBalancerResponse() {
+            IsBase64Encoded = false,
+            StatusCode = 200,
+            StatusDescription = "200 OK",
+            Headers = corsHeaders,
+          };
+          return corsResponse;
+        }
+
         if (requestHeaders.ContainsKey("authorization"))
           authorization = requestHeaders["authorization"];
 
@@ -35,6 +51,7 @@ namespace Namespace
 
           Dictionary<string, string> headers = new Dictionary<string, string>();
           headers.Add("Content-Type", "application/json");
+          headers.Add("Access-Control-Allow-Origin", "*");
 
           response = new ApplicationLoadBalancerResponse() {
             IsBase64Encoded = false,

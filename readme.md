@@ -52,3 +52,7 @@ To test your own OIDC and JWT token:
 * Update the environment in `.vscode/launch.json` to use your domain and audience from your IdP's application settings.
 * You can run the project (F5 )- insert your JWT in the authorization header in request.json.
 
+### CORS
+
+The ELB doesn't support CORS - you need to implement it your self. The Handler.cs does this.
+Also, you have to pass the correct Access-Control-Allow-Origin header on your API response.

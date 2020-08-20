@@ -6,7 +6,7 @@ namespace Namespace {
 
 public class Program {
     public static void Main(string[] args) {
-        var request = File.Open("request.json",FileMode.Open);
+        var request = File.Open("optionsrequest.json",FileMode.Open);
         var api = new API();
         var response = api.FunctionHandler(request);
         Console.WriteLine(response.ToString());
