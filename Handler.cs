@@ -18,6 +18,8 @@ namespace Namespace
         var requestHeaders = JsonSerializer.Deserialize<Dictionary<string,string>>(dict["headers"].ToString());
         var authorization = "";
 
+        System.Console.WriteLine(request);
+
         if (dict["httpMethod"].ToString()=="OPTIONS") {
           Dictionary<string, string> corsHeaders = new Dictionary<string, string>();
           corsHeaders.Add("Content-Type", "application/json");
@@ -35,8 +37,6 @@ namespace Namespace
 
         if (requestHeaders.ContainsKey("authorization"))
           authorization = requestHeaders["authorization"];
-
-        System.Console.WriteLine(request);
 
         // Get these from the Lambda ENV
         var domain = Environment.GetEnvironmentVariable("AUTH_DOMAIN");
