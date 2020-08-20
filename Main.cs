@@ -11,12 +11,6 @@ public class Program {
         var response = api.FunctionHandler(request);
         Console.WriteLine(response.ToString());
 
-        // var domain = Environment.GetEnvironmentVariable("AUTH_DOMAIN");
-        // var audience = Environment.GetEnvironmentVariable("AUTH_AUDIENCE");
-        // var permission = Environment.GetEnvironmentVariable("AUTH_PERMISSIONS");
-        // var permissions = new List<string>(permission.Split(','));
-        // var isAuthorized = JWTAuthorizer.Authorizer.IsAuthorized(authHeader, domain, audience, permissions);
-
         if (response.StatusCode == 200) 
         {
             Console.WriteLine(response.Body);

@@ -37,20 +37,18 @@ Note: You will need the ARN of your certificate in AWS - must be in
 same region as the ALB.
 
 ## Local testing
-You can use the request.json as input to your lambda:
-`sls invoke local -f webapi --path request.json`
 
-## Miscellaneous
+To test your own OIDC and JWT token:
+* Update the environment in `.vscode/launch.json` to use your domain and audience from your IdP's application settings.
+* Insert your JWT in the authorization header in request.json.
+* You can debug the handler by placing breakpoints - then running the project (F5). The `Main.cs` will bootstrap up the handler.
+* You can run locally and use the request.json as input to your lambda to test invocations:
+  * `sls invoke local -f webapi --path request.json`
 
-ALB setup for OIDC and TLS requires setting up an authorizer lambda and certificate
-on the ALB - working example forthcoming.
 
+### OIDC Testing
 
--------------------------------------------------------------------
-You may only use the Microsoft .NET Core Debugger (vsdbg) with
-Visual Studio Code, Visual Studio or Visual Studio for Mac software
-to help you develop and test your applications.
--------------------------------------------------------------------
-Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
-Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
-IDX20803: Unable to obtain configuration from: 'System.String'.
+To test your own OIDC and JWT token:
+* Update the environment in `.vscode/launch.json` to use your domain and audience from your IdP's application settings.
+* You can run the project (F5 )- insert your JWT in the authorization header in request.json.
+
