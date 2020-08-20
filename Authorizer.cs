@@ -11,24 +11,27 @@ using Microsoft.IdentityModel.Tokens;
 namespace JWTAuthorizer {
 
 public static class Authorizer {
+    private static OpenIdConnectConfiguration openIdConfig;
 
     public static bool IsAuthorized(string authHeaderValue, string domain, string audience, List<string> scopes) {
         try {
             var toks = authHeaderValue.Split();
             var domainUrl = $"https://{domain}/";
-            ConfigurationManager<OpenIdConnectConfiguration> configManager = 
-                new ConfigurationManager<OpenIdConnectConfiguration>(
-                    $"{domainUrl}.well-known/openid-configuration", 
-                    new OpenIdConnectConfigurationRetriever());
-            OpenIdConnectConfiguration openIdConfig = 
-            AsyncHelper.RunSync(async () => await configManager.GetConfigurationAsync(CancellationToken.None));
+            if (openIdConfig == null)
+            {
+                ConfigurationManager<OpenIdConnectConfiguration> configManager = 
+                    new ConfigurationManager<OpenIdConnectConfiguration>(
+                        $"{domainUrl}.well-known/openid-configuration", 
+                        new OpenIdConnectConfigurationRetriever());
+                openIdConfig = 
+                AsyncHelper.RunSync(async () => await configManager.GetConfigurationAsync(CancellationToken.None));
+            }
             TokenValidationParameters validationParameters =
             new TokenValidationParameters
             {
                 ValidIssuer = domainUrl,
                 ValidAudiences = new[] { audience },
                 IssuerSigningKeys = openIdConfig.SigningKeys,
-
             };
 
             SecurityToken validatedToken;
