@@ -3,7 +3,6 @@ using Amazon.Lambda.Core;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Amazon.Lambda.ApplicationLoadBalancerEvents;
 
 [assembly:LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
