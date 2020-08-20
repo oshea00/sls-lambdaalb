@@ -9,9 +9,14 @@ registration of the lambda.
 The example Handler.cs simply dumps the request passed in by the ALB to the
 log and returns a "Hello 123" string.
 
-This project was started using `sls create -t aws-csharp -p lambdaalb`. Added enough code to 
-the handler to dump the request and return some data. The heavy lifting is in the serverless.
-yaml which sets up the ALB and references the function produced in the 'functions:' section.
+This project was started using `sls create -t aws-csharp -p lambdaalb`. 
+
+The heavy lifting is here:
+* serverless.yml which sets up the ALB and references the function produced in the 'functions:' section,
+  along with the reference to your certificate ARN, which must exist in the same region
+  as your ALB. Much of this in CF yaml in the Resources section.
+* `Handler.cs` has to handle the JWT validation, see `Authorizer.cs`.
+* Lastly you have to implement CORS yourself and provide OPTIONS request handling.
 
 You can use the same serverless.yml in your own project using whatever runtime you want 
 for the actual lambda - just create a project using the runtime you want and use this
@@ -54,5 +59,5 @@ To test your own OIDC and JWT token:
 
 ### CORS
 
-The ELB doesn't support CORS - you need to implement it your self. The Handler.cs does this.
+The ELB doesn't support CORS - you need to implement it yourself. The Handler.cs does this.
 Also, you have to pass the correct Access-Control-Allow-Origin header on your API response.
