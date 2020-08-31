@@ -4,13 +4,13 @@
             "targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:455313538421:targetgroup/lambd-Targe-F2KY5SV1QSGX/6c7971ad67de3d68"
         }
     },
-    "httpMethod": "GET",
+    "httpMethod": "POST",
     "path": "/api",
     "queryStringParameters": {},
     "headers": {
         "accept": "*/*",
         "accept-encoding": "gzip, deflate",
-        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InhUV0RQMjM0Zy1xd3BKeUNqOGc1eCJ9.eyJpc3MiOiJodHRwczovL2Rldi01NjktZC15Ny5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTExMjIyNTQ3NDg0NDk3ODM0MTciLCJhdWQiOlsiNjVxeXE5bWw4NCIsImh0dHBzOi8vZGV2LTU2OS1kLXk3LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE1OTc4NjExMDYsImV4cCI6MTU5Nzk0NzUwNiwiYXpwIjoiVTN4dWhsVGZtWTloeHdDTzBXanpQanRZeXNPemV4QzQiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsid3JpdGU6dm90ZXMiXX0.aweT29BzaEm1bOUP2CfG4GAZcR0CY_eFGtYBNVnLQ6GLH023yNlCU-De7a1Ar_nVKF99CBeMw1Agm-oxozbgc1hBZ-oAukyF225TBtJaUobZkmW6uxuMCQzEhPtzgH78LcHiMLp9o27V8rgsDlMGrMwpUoSNeGsaBDv02tE5k7np7U3D7xcx4AobLvX8smJdMXobJ9gkKpnw4TED3IAa785wLshv1M0hYtj-J8nwWnHxx_8JAAphwiFcvNNKUdiZs7N0pCy6Oy-IVkCZxgb7lgE6hJ7_GXO0_H4oUS2NQoaSw-wgcrjFVUsgcpGEpi5xJXPnOZ2ojdthsxS8s4DpJA",
+        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InhUV0RQMjM0Zy1xd3BKeUNqOGc1eCJ9.eyJpc3MiOiJodHRwczovL2Rldi01NjktZC15Ny5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTExMjIyNTQ3NDg0NDk3ODM0MTciLCJhdWQiOlsiNjVxeXE5bWw4NCIsImh0dHBzOi8vZGV2LTU2OS1kLXk3LmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE1OTg2NTM4NzAsImV4cCI6MTU5ODc0MDI3MCwiYXpwIjoiVTN4dWhsVGZtWTloeHdDTzBXanpQanRZeXNPemV4QzQiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsid3JpdGU6dm90ZXMiXX0.VLIO23U6DJ07tsbd_7-S1NJehYEAnWIWZ9ednbFm8zQEtGMs1IaKbSM4h4iHvuZYGG5loedx-efxrra62n_jtoKNfQcR5dbhuyWyP_NJhlya8SwnvKj3YxpmPSxcfPeJMBNNbF63JOM5LBzmVfslXAkmeKm2945VXZCWjHYXuzvlxosht5i6ZQtqVF_4goGvsm8wxHqU-es6wB-knvjcwD1dUMGS0jgDo_bIZI_m2eKln7NvB9ksH_mqyxk1ZIRMUMV2bU7cCWtsnoersrialqqUcm0V-USzWEbIKmnXjQWEQcAl_Hdow1-jgfguzzMYxFm07eTLOMbrIAOk2_DAmA",
         "cache-control": "no-cache",
         "connection": "keep-alive",
         "host": "lambdaalb.limpidfox.com",
@@ -21,6 +21,9 @@
         "x-forwarded-port": "443",
         "x-forwarded-proto": "https"
     },
-    "body": "",
+    "body": {
+        "data": "abcabcabcabcabcabcabcabcabcabcabcabcabcabc"
+    }
+    ,
     "isBase64Encoded": false
 }

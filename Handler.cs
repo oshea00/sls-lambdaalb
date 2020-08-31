@@ -17,6 +17,7 @@ namespace Namespace
         var dict = JsonSerializer.Deserialize<Dictionary<string,object>>(request);
         var requestHeaders = JsonSerializer.Deserialize<Dictionary<string,string>>(dict["headers"].ToString());
         var authorization = "";
+        int contentLength = request.Length;
 
         System.Console.WriteLine(request);
 
@@ -47,7 +48,7 @@ namespace Namespace
         // See if authorized
         if (JWTAuthorizer.Authorizer.IsAuthorized(authorization, domain, audience, permissions)) 
         {
-          var data = new Response { Message = "Hello, 123!"};
+          var data = new Response { Message = "Hello, 123!", BodyLength = contentLength.ToString()};
 
           Dictionary<string, string> headers = new Dictionary<string, string>();
           headers.Add("Content-Type", "application/json");
@@ -77,5 +78,6 @@ namespace Namespace
 
     class Response {
       public string Message { get; set; }
+      public string BodyLength { get; set; }
     }
 }

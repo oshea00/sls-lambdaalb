@@ -5,7 +5,13 @@ provider:
   name: aws
   region: us-west-2
   runtime: dotnetcore3.1
-
+  stackTags:
+    PointOfContact: "Mike OShea"
+    TeamManager: "Mike OShea"
+    Schedule: "NA"
+    Name: "Deployment Test"
+    BusinessUnit: "PPA"
+    
 custom:
   vpcConfig:
     vpcId: vpc-c93faeb1
